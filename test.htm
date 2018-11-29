@@ -1,5 +1,6 @@
 <html>
 <head>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"> </script>
 <script language="javascript"> 
 
 const DATA=["http://www.google.com.tw","http://www.hinet.net","http://www.yahoo.com.tw"];
@@ -53,11 +54,49 @@ function FunA()
 	}
 	alert("Game Over!!!");
 }
+
+function TxtToArchor(that)
+{
+	return that.parentElement.children[1].children[0];
+}
+
+function GGYY()
+{
+	var that=$("td:contains(txt)");
+	for (var i=0; i<that.size(); i++)
+	{
+		//alert(  TxtToArchor(that.get(i)));
+		 TxtToArchor(that.get(i)).click();
+	}
+}
 </script>
 </head>
 <body>
 
 <button onclick="FunA()"> ButtonA </button>
+<button onclick="GGYY()"> ButtonB </button>
+<table>
+<tr>
+<td>
+<p>txt1</p>
+</td>
+
+<td>
+<a href="http://www.hinet.net" >hinet</a>
+</td>
+</tr>
+<tr>
+<td>
+<p>txt2</p>
+</td>
+
+<td>
+<a href="http://www.yahoo.com" >yahoo</a>
+</td>
+
+</tr>
+
+</table>
 	
 
 </body>
