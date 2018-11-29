@@ -1,0 +1,64 @@
+<html>
+<head>
+<script language="javascript"> 
+
+const DATA=["http://www.google.com.tw","http://www.hinet.net","http://www.yahoo.com.tw"];
+function TimeSlot(SIZE,SEC)
+{	
+	var ret=new Array(SIZE);
+	var now=new Date();
+	for (var i=0; i<SIZE; i++)
+	{
+		if (i==0)
+			ret[i]= now.valueOf() + SEC*1000;
+		else
+			ret[i]= new Date(ret[i-1].valueOf()+SEC*1000);
+	}
+	return ret;
+}	
+function TimeToString(tm)
+{
+	var ref=new Date(tm);
+	var ret=""+ ref.getHours()+":"+ref.getMinutes()+":"+ref.getSeconds()+"\n";
+	return ret;
+	
+}
+function ShowAllTimeSlot()
+{
+	var show="";
+	for (var i=0; i<10; i++)
+	{
+		show=show+ TimeToString(TM[i]);
+	}
+	//alert(show);
+	return ret;
+}
+function FunA()
+{
+	var TM=TimeSlot(10,5);  //Make 10 TimeSlots; each of them arrange in the interval of 5 seconds
+	var i=0;
+	while(1)
+	{
+		window.open(DATA[i%3]);
+		while(1)
+		{
+			console.log(TM[i]);
+			var now=Date.now();
+			if (now-TM[i]>=0)
+				break;
+		}
+		i++;
+		if (i>=10)
+			break;
+	}
+	alert("Game Over!!!");
+}
+</script>
+</head>
+<body>
+
+<button onclick="FunA()"> ButtonA </button>
+	
+
+</body>
+</html>
